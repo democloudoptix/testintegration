@@ -1,0 +1,16 @@
+Resources:
+  myvpc:        
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: 10.0.0.0/16
+      Tags:
+        - Key: "Name"
+          Value: "Treat"
+  Ec2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0ff8a91507f77f867
+      Tags:
+        - Key: "Name"
+          Value: !Join [" ",['EC2,Instance,in,the,region']]
